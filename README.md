@@ -15,10 +15,46 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
+## 功能支持
+- （隐藏/显示）连接线
+- （隐藏/显示）自定义文件夹图标
+- 字体
+- 链接
+- 点击触发事件
+
+### 属性
+```ts
+enum Status {
+  CLOSE,
+  OPEN,
+}
+interface treeType {
+  id: string;
+  name: string;
+  icon?: string;
+  status: Status;
+  fontCss?: unknown;
+  toUrl: () => void | null;
+  children?: Array<treeType> | null;
+}
+interface optionType {
+  Tree: Array<treeType>;
+  options: {
+    showIcon: boolean;
+    showLine: boolean;
+  };
+  firstNodeId?: string; // 解决第一层头个结点css问题
+}
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 默认
+![image](src/assets/show/4.png)
+
+### 展开
+![image](src/assets/show/2.png)
+
+### 隐藏连接线
+![image](src/assets/show/3.png)
+
+### 隐藏图标
+![image](src/assets/show/1.png)

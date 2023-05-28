@@ -2,36 +2,41 @@
  * @Author: JJking666 1337802617@qq.com
  * @Date: 2023-04-30 16:53:38
  * @LastEditors: JJking666 1337802617@qq.com
- * @LastEditTime: 2023-05-08 22:06:10
+ * @LastEditTime: 2023-05-27 17:39:51
  * @FilePath: \treedemo\src\views\AboutView.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <template>
   <div class="about">
     <h1>This is an zTree demo</h1>
-    <div class="button-list">
+    <div class="about__button-list">
       <el-button type="primary" @click="changeShowIcon">{{
-        options.showIcon ? "隐藏图标" : "显示图标"
+        showIcon
       }}</el-button>
       <el-button type="success" @click="changeShowLine">{{
-        options.showLine ? "隐藏连接线" : "显示连接线"
+        showLine
       }}</el-button>
     </div>
-    <div class="content">
+    <div class="about__content">
       <ATree :Tree="tree" :options="options" :firstNodeId="tree[0].id"></ATree>
     </div>
   </div>
 </template>
 
 <script setup>
-import { reactive, ref } from "vue";
+import { reactive, ref, computed } from "vue";
 import ATree from "../components/ATree.vue";
 
 let options = reactive({
   showIcon: true,
   showLine: true,
 });
-
+const showIcon = computed(() => {
+  return options.showIcon ? "隐藏图标" : "显示图标";
+});
+const showLine = computed(() => {
+  return options.showLine ? "隐藏连接线" : "显示连接线";
+});
 const tree = reactive([
   {
     id: 0,
@@ -356,11 +361,12 @@ const tree = reactive([
     ],
   },
 ]);
-
+// 是否显示图标
 function changeShowIcon() {
   options.showIcon = !options.showIcon;
   console.log("changeShowIcon", options);
 }
+// 是否显示连接线
 function changeShowLine() {
   options.showLine = !options.showLine;
   console.log("changeShowLine", options);
@@ -375,13 +381,13 @@ function changeShowLine() {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .button-list {
+  &__button-list {
     display: flex;
     justify-content: center;
     width: 300px;
     margin-bottom: 20px;
   }
-  .content {
+  &__content {
     width: fit-content;
     background-color: #dafff3;
     padding: 30px 15px;
