@@ -48,13 +48,13 @@ interface optionType {
 ```
 
 ### 默认
-![image](src/assets/show/4.png)
+![image](https://raw.githubusercontent.com/JJking666/ATree/master/src/assets/show/1.png)
 
 ### 展开
-![image](src/assets/show/2.png)
+![image](https://raw.githubusercontent.com/JJking666/ATree/master/src/assets/show/2.png)
 
 ### 隐藏连接线
-![image](src/assets/show/3.png)
+![image](https://raw.githubusercontent.com/JJking666/ATree/master/src/assets/show/3.png)
 
 ### 隐藏图标
-![image](src/assets/show/1.png)
+![image](https://raw.githubusercontent.com/JJking666/ATree/master/src/assets/show/4.png)
